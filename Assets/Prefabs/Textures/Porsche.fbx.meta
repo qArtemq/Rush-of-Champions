@@ -1,0 +1,254 @@
+fileFormatVersion: 2
+guid: 1fb2140126dba2b43a30ba7799df6692
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Global_Texture_Coloured_Diffuse
+    second: {fileID: 2800000, guid: a033982f1e078bc4d8af3b78af93bb1a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_BadgeA_DiffuseAOSO
+    second: {fileID: 2800000, guid: 41b60071441326c47a48960abcec6a78, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_BadgeA_Normal
+    second: {fileID: 2800000, guid: b48b44168cde4bc44b02ca4d64ea9b96, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_CalliperA_Zone_Diffuse
+    second: {fileID: 2800000, guid: 51c1da2f238bf3840b6abb257d5b5334, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille1A_DiffuseAOSO
+    second: {fileID: 2800000, guid: 6e9b5087e28c2414eb33ce92fb24800b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille2A_DiffuseAOSO
+    second: {fileID: 2800000, guid: 43aa96ffc30a63e4db2fd3b56cb9103d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille2A_Normal
+    second: {fileID: 2800000, guid: cfc2c16a2fc5745428d318fa5811b79e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille3A_DiffuseAOSO
+    second: {fileID: 2800000, guid: eced16c96b3a0e24792bf4e20c9c90e8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille3A_Normal
+    second: {fileID: 2800000, guid: 61cc19b5a7a5adc48851c82225c0bb12, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille4A_DiffuseAOSO
+    second: {fileID: 2800000, guid: 4600fbcd7fa90524c95d8a46720b66f1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille4A_Normal
+    second: {fileID: 2800000, guid: 9adbb410f4b9b414488f7230558d5939, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille5A_DiffuseAOSO
+    second: {fileID: 2800000, guid: fd3d5c7678d247648925426e6ec7340c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille5A_Normal
+    second: {fileID: 2800000, guid: 46ba93a2fab627e4188825213cd79d6c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille6B_DiffuseAOSO
+    second: {fileID: 2800000, guid: e38cea2da9d5b9644928a332251d0bfd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille6B_Normal
+    second: {fileID: 2800000, guid: c53faa7c84ebe874593f04de32ed9a70, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille7A_DiffuseAOSO
+    second: {fileID: 2800000, guid: 23305033a76655842a8fcf04944b2ccf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille7A_Normal
+    second: {fileID: 2800000, guid: e2ff75ec27edd6f41b8bcdf4c26ec1ef, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille8A_Normal
+    second: {fileID: 2800000, guid: 9351d64584d999849aba8db63c4ea8a1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille9A_DiffuseAOSO
+    second: {fileID: 2800000, guid: 4af8fbe9ad61e4f40a06c2387acd100f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Grille9A_Normal
+    second: {fileID: 2800000, guid: 4ec1c41946b8b99498a3a904837c7a22, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_InteriorB_DiffuseAOSO
+    second: {fileID: 2800000, guid: 7baeda99b088bb5409272d2d7d23c3d0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_InteriorB_Normal
+    second: {fileID: 2800000, guid: 3cc174ea342ca2d46a1d37a2e7fe8f36, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_LightA_Diffuse
+    second: {fileID: 2800000, guid: af165938a80e4584db5def13afc5a796, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_ManufacturerPlateB_Diffuse
+    second: {fileID: 2800000, guid: 48002939ae6c60946923376884754e4c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_TexturedA_Diffuse
+    second: {fileID: 2800000, guid: b53da2ba146dba74784d25046f2eca37, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Wheel1A_Normal
+    second: {fileID: 2800000, guid: dd2ba1cc7c62be24cab9920ecddb4427, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Porsche_911GT3RS992_2023_Wheel1G_DiffuseAOSO
+    second: {fileID: 2800000, guid: 45079b6112ae7a14b8a8f258c5d2806f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: common_carbon05_black_diff
+    second: {fileID: 2800000, guid: bb8c716d0237412439446e93da4fc4b8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: common_carbon05_norm
+    second: {fileID: 2800000, guid: cfa009788805c6846b5dac0670bdc151, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
