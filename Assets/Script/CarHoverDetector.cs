@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CarHoverDetector : MonoBehaviour
 {
-    public Menu menuScript; // —сылка на скрипт главного меню
+    public Menu menuScript;
 
     void Start()
     {

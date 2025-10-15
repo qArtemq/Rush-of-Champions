@@ -24,7 +24,6 @@ namespace UnityStandardAssets.Utility
             get { return waypointList.items; }
         }
 
-        //this being here will save GC allocs
         private int p0n;
         private int p1n;
         private int p2n;
@@ -36,7 +35,6 @@ namespace UnityStandardAssets.Utility
         private Vector3 P2;
         private Vector3 P3;
 
-        // Use this for initialization
         private void Awake()
         {
             if (Waypoints.Length > 1)
@@ -49,7 +47,6 @@ namespace UnityStandardAssets.Utility
 
         public RoutePoint GetRoutePoint(float dist)
         {
-            // position and direction
             Vector3 p1 = GetRoutePosition(dist);
             Vector3 p2 = GetRoutePosition(dist + 0.1f);
             Vector3 delta = p2 - p1;
@@ -74,27 +71,16 @@ namespace UnityStandardAssets.Utility
             }
 
 
-            // get nearest two points, ensuring points wrap-around start & end of circuit
             p1n = ((point - 1) + numPoints)%numPoints;
             p2n = point;
 
-            // found point numbers, now find interpolation value between the two middle points
 
             i = Mathf.InverseLerp(distances[p1n], distances[p2n], dist);
 
             if (smoothRoute)
             {
-                // smooth catmull-rom calculation between the two relevant points
-
-
-                // get indices for the surrounding 2 points, because
-                // four points are required by the catmull-rom function
                 p0n = ((point - 2) + numPoints)%numPoints;
                 p3n = (point + 1)%numPoints;
-
-                // 2nd point may have been the 'last' point - a dupe of the first,
-                // (to give a value of max track distance instead of zero)
-                // but now it must be wrapped back to zero if that was the case.
                 p2n = p2n%numPoints;
 
                 P0 = points[p0n];
@@ -106,7 +92,6 @@ namespace UnityStandardAssets.Utility
             }
             else
             {
-                // simple linear lerp between the two points:
 
                 p1n = ((point - 1) + numPoints)%numPoints;
                 p2n = point;
@@ -118,8 +103,6 @@ namespace UnityStandardAssets.Utility
 
         private Vector3 CatmullRom(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float i)
         {
-            // comments are no use here... it's the catmull-rom equation.
-            // Un-magic this, lord vector!
             return 0.5f*
                    ((2*p1) + (-p0 + p2)*i + (2*p0 - 5*p1 + 4*p2 - p3)*i*i +
                     (-p0 + 3*p1 - 3*p2 + p3)*i*i*i);
@@ -128,8 +111,6 @@ namespace UnityStandardAssets.Utility
 
         private void CachePositionsAndDistances()
         {
-            // transfer the position of each point and distances between points to arrays for
-            // speed of lookup at runtime
             points = new Vector3[Waypoints.Length + 1];
             distances = new float[Waypoints.Length + 1];
 
@@ -237,10 +218,6 @@ namespace UnityStandardAssets.Utility.Inspector
             float y = position.y;
             float inspectorWidth = position.width;
 
-            // Draw label
-
-
-            // Don't make child fields be indented
             var indent = EditorGUI.indentLevel;
             EditorGUI.indentLevel = 0;
 
@@ -261,7 +238,6 @@ namespace UnityStandardAssets.Utility.Inspector
                     {
                         float w = widths[n]*inspectorWidth;
 
-                        // Calculate rects
                         Rect rect = new Rect(rowX, y, w, lineHeight);
                         rowX += w;
 
@@ -313,7 +289,6 @@ namespace UnityStandardAssets.Utility.Inspector
             }
             else
             {
-                // add button
                 var addButtonRect = new Rect((x + position.width) - widths[widths.Length - 1]*inspectorWidth, y,
                                              widths[widths.Length - 1]*inspectorWidth, lineHeight);
                 if (GUI.Button(addButtonRect, "+"))
@@ -324,7 +299,6 @@ namespace UnityStandardAssets.Utility.Inspector
                 y += lineHeight + spacing;
             }
 
-            // add all button
             var addAllButtonRect = new Rect(x, y, inspectorWidth, lineHeight);
             if (GUI.Button(addAllButtonRect, "Assign using all child objects"))
             {
@@ -344,7 +318,6 @@ namespace UnityStandardAssets.Utility.Inspector
             }
             y += lineHeight + spacing;
 
-            // rename all button
             var renameButtonRect = new Rect(x, y, inspectorWidth, lineHeight);
             if (GUI.Button(renameButtonRect, "Auto Rename numerically from this order"))
             {
@@ -357,7 +330,6 @@ namespace UnityStandardAssets.Utility.Inspector
             }
             y += lineHeight + spacing;
 
-            // Set indent back to what it was
             EditorGUI.indentLevel = indent;
             EditorGUI.EndProperty();
         }
@@ -371,7 +343,6 @@ namespace UnityStandardAssets.Utility.Inspector
         }
 
 
-        // comparer for check distances in ray cast hits
         public class TransformNameComparer : IComparer
         {
             public int Compare(object x, object y)

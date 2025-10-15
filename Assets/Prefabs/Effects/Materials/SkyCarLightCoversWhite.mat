@@ -22,7 +22,7 @@ Material:
   - _LIGHTMAPPING_STATIC_LIGHTMAPS
   - _UVPRIM_UV1
   - _UVSEC_UV1
-  m_LightmapFlags: 0
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
@@ -30,6 +30,8 @@ Material:
     RenderType: Transparent
   disabledShaderPasses:
   - DepthOnly
+  - MOTIONVECTORS
+  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -100,6 +102,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaTestRef: 0.5
     - _AlphaToMask: 0
@@ -142,7 +145,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0.89411765}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.89411765}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0.99999994}
     - _EmissionColorUI: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorWithMapUI: {r: 0, g: 0, b: 0, a: 1}
@@ -150,6 +153,7 @@ Material:
     - _SpecColor: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 1}
     - _SpecularColor: {r: 0.18382353, g: 0.18382353, b: 0.18382353, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &3260406469500700368
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -162,4 +166,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 10

@@ -22,7 +22,6 @@ public class RaceManagerButtons : MonoBehaviour
         backGraund.SetActive(false);
         settingsGame.SetActive(false);
 
-        // Скрываем и блокируем курсор в начале игры
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -97,26 +96,23 @@ public class RaceManagerButtons : MonoBehaviour
         pauseGame.SetActive(false);
         backGraund.SetActive(false);
 
-        // Скрываем курсор при продолжении игры
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        ResumeAllPausedSounds(); // Возобновляем все звуки
+        ResumeAllPausedSounds();
     }
     private void PauseAllSoundsExceptBackground()
     {
-        setting.PauseNonBackgroundSounds(); // Вызов метода из Setting для остановки всех звуков
+        setting.PauseNonBackgroundSounds();
     }
     private void ResumeAllPausedSounds()
     {
-        setting.ResumeNonBackgroundSounds(); // Вызов метода из Setting для возобновления всех звуков
+        setting.ResumeNonBackgroundSounds();
     }
     public void YesRestartGame()
     {
-        // Получаем текущую сцену
         Scene currentScene = SceneManager.GetActiveScene();
 
-        // Перезагружаем текущую сцену
         SceneManager.LoadScene(currentScene.name);
 
         if(Time.timeScale == 0f)
@@ -124,7 +120,6 @@ public class RaceManagerButtons : MonoBehaviour
             Time.timeScale = 1f;
         }
 
-        // Скрываем курсор после перезапуска
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

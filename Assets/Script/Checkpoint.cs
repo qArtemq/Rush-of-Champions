@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public int checkpointIndex; // Индекс этой контрольной точки в массиве checkpoints RaceManager
+    public int checkpointIndex;
 
     RaceManager raceManager;
     void Start()

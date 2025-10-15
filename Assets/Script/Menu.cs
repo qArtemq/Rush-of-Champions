@@ -15,10 +15,10 @@ public class Menu : MonoBehaviour
     public GameObject openSettings;
     public GameObject mainMenu;
     public GameObject garageMenu;
-    public InputField nameInputField; // Поле ввода имени
-    public CanvasGroup nameInput; // Поле ввода имени
-    public TextMeshProUGUI nameText; // Текст для отображения имени
-    public TextMeshProUGUI errorText; // Поле для вывода сообщения об ошибке
+    public InputField nameInputField;
+    public CanvasGroup nameInput;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI errorText;
 
     [Header("Players")]
     public int minBots = 0;
@@ -33,11 +33,11 @@ public class Menu : MonoBehaviour
     public TextMeshProUGUI lapText;
 
     [Header("Maps")]
-    public Sprite[] mapImages; // Массив изображений карты в виде спрайтов
-    private int selectedMapIndex = 0; // Индекс выбранной карты
-    public Image mapPreview; // Текущее изображение карты
-    public Image mapRight;   // Изображение справа от текущей карты
-    public Image mapLeft;    // Изображение слева от текущей карты
+    public Sprite[] mapImages;
+    private int selectedMapIndex = 0;
+    public Image mapPreview;
+    public Image mapRight;
+    public Image mapLeft;
     public TextMeshProUGUI makeMoneyText;
     public int[] mapPrices;
     int totalReward;
@@ -46,18 +46,18 @@ public class Menu : MonoBehaviour
     public Camera mainCamera;
     public Transform camPosA;
     public Transform camPosB;
-    public float cameraMoveDuration = 1f; // Длительность движения камеры
+    public float cameraMoveDuration = 1f;
 
     [Header("Car")]
-    public GameObject[] cars; // Массив префабов машин
-    private GameObject currentCar; // Текущая отображаемая машина
+    public GameObject[] cars;
+    private GameObject currentCar;
     private int selectedCarIndex = 0;
-    public Transform carDisplayPosition; // Позиция для отображения машины в гараже
+    public Transform carDisplayPosition;
 
     [Header("Color")]
-    public List<Color> availableColors; // Список доступных цветов
-    private Renderer carRenderer; // Рендерер текущей машины
-    private Material carMaterialInstance; // Индивидуальный материал для текущей машины
+    public List<Color> availableColors;
+    private Renderer carRenderer;
+    private Material carMaterialInstance;
     private Color selectedColor;
 
     [Header("Bool")]
@@ -65,22 +65,21 @@ public class Menu : MonoBehaviour
     public bool isStartScreen = true;
     private bool inGarage = false;
     private bool inPlayGame = false;
-    private bool isHoveringCar = false; // Отслеживаем, находится ли мышь над автомобилем
+    private bool isHoveringCar = false;
 
     [Header("Coin")]
     public GameObject screenMoney;
-    public int coins = 0; // Количество монет
-    public Text coinText; // UI элемент для отображения монет
-    public Text selectButtonText; // Текст на кнопке «Выбрать»
+    public int coins = 0;
+    public Text coinText;
+    public Text selectButtonText;
 
     [Header("Shop")]
-    public int[] carPrices; // Цены для каждого автомобиля, первые три установлены в 0
-    public CanvasGroup insufficientFundsMessage; // Ссылка на текст сообщения
+    public int[] carPrices;
+    public CanvasGroup insufficientFundsMessage;
     private bool[] carPurchased;
 
     void Start()
     {
-        // Инициализация количества машин в массиве carPurchased
         carPurchased = new bool[cars.Length];
         for (int i = 0; i < cars.Length; i++)
         {
@@ -98,7 +97,7 @@ public class Menu : MonoBehaviour
         mainMenu.SetActive(false);
         screenMoney.SetActive(false);
         garageMenu.SetActive(false);
-        splashScreen.alpha = 1.0f; // Устанавливаем полную видимость
+        splashScreen.alpha = 1.0f;
         splashScreen.gameObject.SetActive(true);
         helloScreen.gameObject.SetActive(true);
         helloScreen.alpha = 1.0f;
@@ -124,12 +123,11 @@ public class Menu : MonoBehaviour
 
     void Update()
     {
-        // Проверяем нажатие клавиши "A"
         if (Input.GetKeyDown(KeyCode.F) && isStartScreen)
         {
             mainMenu.SetActive(true);
             screenMoney.SetActive(true);
-            StartCoroutine(FadeOutScreen(splashScreen, 0.5f)); // Начинаем плавное исчезновение
+            StartCoroutine(FadeOutScreen(splashScreen, 0.5f));
             isStartScreen = false;
         }
         if (Input.GetKeyDown(KeyCode.Return) && !isStartScreen)
@@ -180,13 +178,12 @@ public class Menu : MonoBehaviour
     }
     public void StartGame()
     {
-        // Проверка: выбрана ли машина
         if (!PlayerPrefs.HasKey("SelectedCarIndex"))
         {
             errorText.text = "Select a car";
             errorText.gameObject.SetActive(true);
-            StartCoroutine(HideErrorText()); // Скрыть сообщение об ошибке через некоторое время
-            return; // Прерываем запуск игры, если машина не выбрана
+            StartCoroutine(HideErrorText());
+            return;
         }
 
         PlayerPrefs.SetInt("SelectedMapIndex", selectedMapIndex);
@@ -215,8 +212,8 @@ public class Menu : MonoBehaviour
     }
     private IEnumerator HideErrorText()
     {
-        yield return new WaitForSeconds(2f); // Ожидаем 2 секунды
-        errorText.gameObject.SetActive(false); // Скрываем текст
+        yield return new WaitForSeconds(2f);
+        errorText.gameObject.SetActive(false);
     }
     public void IncreaseBots()
     {
@@ -257,8 +254,6 @@ public class Menu : MonoBehaviour
         UpdateMapPreview();
         UpdateSelectMaps();
     }
-
-    // Метод для обновления изображений карт
     public void UpdateMapPreview()
     {
         mapPreview.sprite = mapImages[selectedMapIndex];
@@ -281,29 +276,23 @@ public class Menu : MonoBehaviour
     {
         int mapPrice = mapPrices[selectedMapIndex];
 
-        // Базовая награда за 1 круг и 1 бота
         int baseReward = mapPrice;
 
-        // Дополнительные деньги за каждый круг и каждого бота
-        int lapBonus = 20; // Например, +50 за каждый круг
-        int botBonus = 15; // Например, +100 за каждого бота
+        int lapBonus = 20;
+        int botBonus = 15;
 
-        // Общая награда с учетом выбранных кругов и ботов
         totalReward = baseReward;
 
-        // Если количество кругов больше 1, добавляем бонус за каждый круг
         if (selectedLaps > 1)
         {
             totalReward += (selectedLaps - 1) * lapBonus;
         }
 
-        // Если количество ботов больше 1, добавляем бонус за каждого бота
         if (selectedBots > 1)
         {
             totalReward += (selectedBots - 1) * botBonus;
         }
 
-        // Обновляем текст награды на экране
         makeMoneyText.text = $"+ {totalReward}";
     }
     private void UpdateSelectButton()
@@ -328,7 +317,7 @@ public class Menu : MonoBehaviour
 
     private Color LoadCarColor(int carIndex)
     {
-        float r = PlayerPrefs.GetFloat($"CarColor_{carIndex}_R", 1.0f); // Default to white if no value
+        float r = PlayerPrefs.GetFloat($"CarColor_{carIndex}_R", 1.0f);
         float g = PlayerPrefs.GetFloat($"CarColor_{carIndex}_G", 1.0f);
         float b = PlayerPrefs.GetFloat($"CarColor_{carIndex}_B", 1.0f);
         return new Color(r, g, b);
@@ -345,7 +334,6 @@ public class Menu : MonoBehaviour
                 UpdateCoinDisplay();
             }
 
-            // Помечаем машину как купленную
             carPurchased[selectedCarIndex] = true;
             PlayerPrefs.SetInt($"CarPurchased_{selectedCarIndex}", 1);
 
@@ -360,7 +348,7 @@ public class Menu : MonoBehaviour
             insufficientFundsMessage.alpha = 1;
             StartCoroutine(FadeOutScreen(insufficientFundsMessage, 2f));
         }
-        UpdateSelectButton(); // Обновляем кнопку после покупки
+        UpdateSelectButton();
     }
     private void ApplySavedColor()
     {
@@ -376,7 +364,7 @@ public class Menu : MonoBehaviour
         if (carMaterialInstance != null)
         {
             carMaterialInstance.color = selectedColor;
-            SaveCarColor(selectedCarIndex, selectedColor); // Сохраните цвет в формате RGB
+            SaveCarColor(selectedCarIndex, selectedColor);
         }
     }
     public void SetHoveringCar(bool isHovering)
@@ -402,54 +390,51 @@ public class Menu : MonoBehaviour
         currentCar = Instantiate(cars[selectedCarIndex], carDisplayPosition.position, Quaternion.identity);
         currentCar.transform.SetParent(carDisplayPosition);
 
-        // Устанавливаем ссылку на скрипт меню в CarHoverDetector
         CarHoverDetector hoverDetector = currentCar.GetComponent<CarHoverDetector>();
         if (hoverDetector != null)
         {
             hoverDetector.menuScript = this;
         }
-        // Получаем рендерер машины
         carRenderer = currentCar.GetComponentInChildren<Renderer>();
         if (carRenderer != null)
         {
-            // Создаем копию материала для индивидуального изменения цвета
             carMaterialInstance = new Material(carRenderer.material);
             carRenderer.material = carMaterialInstance;
 
-            carMaterialInstance.color = selectedColor; // Применяем текущий цвет
+            carMaterialInstance.color = selectedColor;
         }
         UpdateSelectButton();
     }
     private IEnumerator FadeOutScreen(CanvasGroup screen, float fadeDuration)
     {
-        float startAlpha = screen.alpha; // Текущий уровень альфа
-        float time = 0; // Время для расчета прогресса
+        float startAlpha = screen.alpha;
+        float time = 0;
 
         while (time < fadeDuration)
         {
             time += Time.deltaTime;
-            screen.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration); // Плавное уменьшение альфа
+            screen.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration);
             yield return null;
         }
 
-        screen.alpha = 0; // Устанавливаем альфа на 0
+        screen.alpha = 0;
         screen.blocksRaycasts = false;
     }
     private IEnumerator HideScreen(CanvasGroup screen, float fadeDuration, float wait)
     {
-        yield return new WaitForSeconds(wait); // Ожидаем 2 секунды
+        yield return new WaitForSeconds(wait);
 
-        float startAlpha = screen.alpha; // Текущий уровень альфа
-        float time = 0; // Время для расчета прогресса
+        float startAlpha = screen.alpha;
+        float time = 0;
 
         while (time < fadeDuration)
         {
             time += Time.deltaTime;
-            screen.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration); // Плавное уменьшение альфа
+            screen.alpha = Mathf.Lerp(startAlpha, 0, time / fadeDuration);
             yield return null;
         }
 
-        screen.alpha = 0; // Устанавливаем альфа на 0
+        screen.alpha = 0;
         screen.blocksRaycasts = false;
     }
 
@@ -469,7 +454,6 @@ public class Menu : MonoBehaviour
         StartCoroutine(MoveCamera(camPosA, camPosB, 50, 60));
         garageMenu.SetActive(true);
         inGarage = true;
-        // Используйте сохраненный индекс или значение по умолчанию 0 при открытии гаража
         selectedCarIndex = PlayerPrefs.HasKey("SelectedCarIndex") ? PlayerPrefs.GetInt("SelectedCarIndex") : 0;
         ShowSelectedCar();
     }
@@ -517,11 +501,10 @@ public class Menu : MonoBehaviour
     {
         string playerName = nameInputField.text;
 
-        // Save the name
         PlayerPrefs.SetString("PlayerName", playerName);
         PlayerPrefs.Save();
 
-        nameText.text = playerName; // Display the entered name
+        nameText.text = playerName;
         nameText.gameObject.SetActive(true);
         isStartScreen = false;
         StartCoroutine(FadeOutScreen(nameInput, 0.5f));
@@ -533,7 +516,7 @@ public class Menu : MonoBehaviour
 
         coinText.text = $"{coins}";
 
-        PlayerPrefs.SetInt("MakeMoneyFinish", coins); // Сохраняем обновленное количество монет
+        PlayerPrefs.SetInt("MakeMoneyFinish", coins);
         PlayerPrefs.Save();
     }
 }

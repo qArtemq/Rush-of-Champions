@@ -99,13 +99,11 @@ public class Setting : MonoBehaviour
             }
         }
     }
-    // Метод для возобновления всех звуков
     public void ResumeNonBackgroundSounds()
     {
         AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource audioSource in audioSources)
         {
-            // Проверяем, что это не фоновая музыка
             if (audioSource.gameObject.name != "Background Music")
             {
                 audioSource.UnPause();
@@ -118,7 +116,6 @@ public class Setting : MonoBehaviour
         AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource audioSource in audioSources)
         {
-            // Проверяем, что это не фоновая музыка
             if (audioSource.gameObject.name != "Background Music")
             {
                 audioSource.Pause();
@@ -168,7 +165,6 @@ public class Setting : MonoBehaviour
     }
     void InitializeSettings()
     {
-        // Получаем доступные разрешения и заполняем dropdown
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 
@@ -191,32 +187,26 @@ public class Setting : MonoBehaviour
         resolutionDropdown.value = PlayerPrefs.GetInt("Resolution", currentResolutionIndex);
         resolutionDropdown.RefreshShownValue();
 
-        // Устанавливаем начальное значение качества
         qualityDropdown.value = PlayerPrefs.GetInt("Quality", 2);
         qualityDropdown.RefreshShownValue();
 
-        // Настройка начального значения для полноэкранного режима
         bool isFullScreen = PlayerPrefs.GetInt("FullScreen", 1) == 1;
         Screen.fullScreen = isFullScreen;
         ToggleFull.isOn = isFullScreen;
 
-        // Инициализация настроек звука
         allSoundsToggle.isOn = PlayerPrefs.GetInt("AllSounds", 1) == 1;
         generalVolumeSlider.value = PlayerPrefs.GetFloat("GeneralVolume", 1.0f);
         backgroundMusicSlider.value = PlayerPrefs.GetFloat("BackgroundMusic", 1.0f);
 
-        // Устанавливаем параметры экрана и качества
         ApplyResolution();
         ApplyQuality();
         ApplyAudioSettings();
     }
-    // Метод для назначения AudioMixer ко всем AudioSource, кроме фоновой музыки
     private void AssignAudioMixerToAllSources()
     {
         AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource audioSource in audioSources)
         {
-            // Пропускаем фоновую музыку, если у нее определенное имя
             if (audioSource.gameObject.name == "Background Music")
             {
                 audioSource.outputAudioMixerGroup = audioMixerGroupBack;
@@ -233,10 +223,8 @@ public class Setting : MonoBehaviour
         SetGeneralVolume(generalVolumeSlider.value);
         SetBackgroundMusicVolume(backgroundMusicSlider.value);
     }
-    // Метод для установки уровня громкости фоновой музыки
     public void SetBackgroundMusicVolume(float volume)
     {
-        // Предполагается, что у вас есть источник звука для фоновой музыки
         AudioSource backgroundMusic = GameObject.Find("Background Music").GetComponent<AudioSource>();
         if (backgroundMusic != null)
         {
@@ -245,14 +233,12 @@ public class Setting : MonoBehaviour
         PlayerPrefs.SetFloat("BackgroundMusic", volume);
         PlayerPrefs.Save();
     }
-    // Метод для установки общего уровня громкости
     public void SetGeneralVolume(float volume)
     {
         audioMixerGeneral.SetFloat("GeneralVolume", volume);
         PlayerPrefs.SetFloat("GeneralVolume", volume);
         PlayerPrefs.Save();
     }
-    // Метод для включения/выключения всех звуков
     public void ToggleAllSounds(bool isEnabled)
     {
         AudioListener.pause = !isEnabled;
@@ -264,7 +250,6 @@ public class Setting : MonoBehaviour
     {
         Screen.fullScreen = isFullScreen;
 
-        // Сохранение состояния экрана
         PlayerPrefs.SetInt("FullScreen", isFullScreen ? 1 : 0);
         PlayerPrefs.Save();
     }
@@ -303,10 +288,9 @@ public class Setting : MonoBehaviour
 
     public void ResetToDefault()
     {
-        // Устанавливаем настройки по умолчанию
-        resolutionDropdown.value = resolutions.Length - 1; // Последнее разрешение
-        qualityDropdown.value = 2; // Среднее качество
-        ToggleFull.isOn = true; // Полный экран
+        resolutionDropdown.value = resolutions.Length - 1;
+        qualityDropdown.value = 2;
+        ToggleFull.isOn = true;
         allSoundsToggle.isOn = true;
         generalVolumeSlider.value = 1.0f;
         backgroundMusicSlider.value = 1.0f;

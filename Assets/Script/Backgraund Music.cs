@@ -6,7 +6,7 @@ public class BackgraundMusic : MonoBehaviour
 {
     [SerializeField] AudioClip[] musicBackGround;
     AudioSource musicSource;
-    private List<int> trackHistory = new List<int>(); // История проигранных треков
+    private List<int> trackHistory = new List<int>();
     private int currentTrackIndex = -1;
 
     void Start()
@@ -20,7 +20,6 @@ public class BackgraundMusic : MonoBehaviour
 
     void Update()
     {
-        // Проверяем, закончился ли текущий трек
         if (!musicSource.isPlaying)
         {
             PlayRandomTrack();
@@ -34,7 +33,6 @@ public class BackgraundMusic : MonoBehaviour
             NextTrack();
         }
     }
-    // Метод для переключения на следующий трек
     public void NextTrack()
     {
         if (musicSource.isPlaying)
@@ -43,12 +41,11 @@ public class BackgraundMusic : MonoBehaviour
         }
         PlayRandomTrack();
     }
-    // Метод для переключения на предыдущий трек
     public void PreviousTrack()
     {
         if (trackHistory.Count > 1 && currentTrackIndex > 0)
         {
-            currentTrackIndex--; // Переходим к предыдущему треку
+            currentTrackIndex--;
             int previousIndex = trackHistory[currentTrackIndex];
 
             if (musicSource.isPlaying)
@@ -56,12 +53,10 @@ public class BackgraundMusic : MonoBehaviour
                 musicSource.Stop();
             }
 
-            // Воспроизводим предыдущий трек
             musicSource.clip = musicBackGround[previousIndex];
             musicSource.Play();
         }
     }
-    // Метод для воспроизведения случайного трека
     void PlayRandomTrack()
     {
         if (musicBackGround.Length == 0)
@@ -73,11 +68,9 @@ public class BackgraundMusic : MonoBehaviour
             newIndex = Random.Range(0, musicBackGround.Length);
         } while (trackHistory.Count > 0 && newIndex == trackHistory[trackHistory.Count - 1] && musicBackGround.Length > 1);
 
-        // Сохраняем трек в истории
         trackHistory.Add(newIndex);
         currentTrackIndex = trackHistory.Count - 1;
 
-        // Воспроизводим трек
         musicSource.clip = musicBackGround[newIndex];
         musicSource.Play();
     }
